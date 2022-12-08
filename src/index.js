@@ -26,5 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         })
     }
+
+    const characterVoteForm = document.getElementById("votes-form");
+
+    characterVoteForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const newVotes = parseInt(event.target.votes.value);
+        const characterVoteCount = document.getElementById("vote-count");
+        let current = parseInt(characterVoteCount.textContent);
+        let votecount = (current += newVotes);
+        characterVoteCount.innerText = votecount;
+    })
+    
     fetchData()
 }) 

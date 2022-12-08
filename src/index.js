@@ -14,6 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
             span.innerHTML = character.name
 
             characterName.appendChild(span)
+
+            span.addEventListener('click', () => {
+                const characterName = document.getElementById("name");
+                const characterImage = document.getElementById("image");
+                const characterVoteCount = document.getElementById("vote-count");
+                
+                characterName.textContent = character.name;
+                characterImage.setAttribute('src', character.image);
+                characterVoteCount.textContent = character.votes;
+            })
         })
     }
     fetchData()
